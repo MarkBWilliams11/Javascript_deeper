@@ -44,3 +44,16 @@ function printName(player) {
 }
 
 printName(playerOne);
+
+//example of making a constructor function
+function Book(title, author, pages) {
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.info = function () {
+    return `${title} the author ${author}, and the number of pages ${pages}`;
+  };
+}
+const thehobbit = new Book("The Hobbit", "J.R.R Tolkien", 295);
+
+console.log(thehobbit.info());
