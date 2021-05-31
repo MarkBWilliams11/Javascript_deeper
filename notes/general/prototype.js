@@ -173,13 +173,13 @@ let admin = {
   isAdmin: true,
 };
 
-alert(admin.fullName); // John Smith (*)
+//alert(admin.fullName); // John Smith (*)
 
 // setter triggers!
 admin.fullName = "Alice Cooper"; // (**)
 
-alert(admin.fullName); // Alice Cooper, state of admin modified
-alert(user.fullName); // John Smith, state of user protected
+//alert(admin.fullName); // Alice Cooper, state of admin modified
+//alert(user.fullName); // John Smith, state of user protected
 
 /* 
 The value of this 
@@ -192,7 +192,7 @@ let animal = {
   eats: true,
   walk() {
     if (!this.isSleeping) {
-      alert(`I walk`);
+      //  alert(`I walk`);
     }
   },
   sleep() {
@@ -209,33 +209,32 @@ let rabbit = {
 // modifies rabbit.isSleeping
 rabbit.sleep();
 
-alert(rabbit.isSleeping); // true
-alert(animal.isSleeping); // undefined (no such property in the prototype)
+//alert(rabbit.isSleeping); // true
+//alert(animal.isSleeping); // undefined (no such property in the prototype)
 
 /* 
 for..in loop iterates over inherited properties too
 */
 
 // Object.keys only returns own keys
-alert(Object.keys(rabbit)); // jumps
+//alert(Object.keys(rabbit)); // jumps
 
 // for..in loops over both own and inherited keys
-for (let prop in rabbit) alert(prop); // jumps, then eats
-
 /* 
 
 If we want to exclude inherited properties, theres is a built-in method obj.hasOwnProperty(key)
 returns true if "obj" has its own property named "key"
 */
 
-for (let prop in rabbit) {
-  let isOwn = rabbit.hasOwnProperty(prop);
+for (let prop in rabbit) //alert(prop); // jumps, then eats
+  for (let prop in rabbit) {
+    let isOwn = rabbit.hasOwnProperty(prop);
 
-  if (isOwn) {
-    alert(`Our: ${prop}`); // Our: jumps
-  } else {
-    alert(`Inherited: ${prop}`); // Inherited: eats
+    if (isOwn) {
+      // alert(`Our: ${prop}`); // Our: jumps
+    } else {
+      // alert(`Inherited: ${prop}`); // Inherited: eats
+    }
   }
-}
 
 //note: for...in is not enumerable it only lists enumerable properties
