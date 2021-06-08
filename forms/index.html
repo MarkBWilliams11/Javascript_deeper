@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="form_validation.js" defer></script>
+    <title>Form Validation</title>
+  </head>
+  <body>
+      <form>
+      <div>
+      <label for="choose">Would you prefer a banana or cherry?</label>
+      <input
+        id="choose"
+        name="i_like"
+        required
+        pattern="[Bb]anana|[Cc]herry"
+        minlength="6"
+        maxlength="6"
+      />
+      </div>
+      <div>
+        
+    <label for="number">How many would you like?</label>
+    <input type="number" id="number" name="amount" value="1" min="1" max="10">
+
+  </div>
+  <div>
+      <button>Submit</button>
+    </form> 
+   
+    <!--<form novalidate>
+      the novalidate attribute to turn off the browser's automatic validation; 
+    this lets our script take control over validation. However, this doesn't disable
+  support for the constraint validation API nor the application of CSS pseudo-classes like 
+  :valid 
+      <p>
+        <label for="mail">
+          <span>Please enter an email address:</span>
+          <input type="email" id="mail" name="mail" required minlength="8" />
+          <span class="error" aria-live="polite"></span>
+          
+
+        The aria-live attribute is set on that <span> to make sure that our custom error message
+        will be presented to everyone, including it being read out to screenreader users!
+      
+        </label>
+      </p>
+      <button>Submit</button>
+    </form> -->
+  
+    <!-- email example with legecy browsers -->
+    <form>
+  <p>
+    <label for="mail">
+        <span>Please enter an email address:</span>
+        <input type="text" id="mail" name="mail">
+        <span class="error" aria-live="polite"></span>
+    </label>
+  </p>
+  <!-- Some legacy browsers need to have the `type` attribute
+       explicitly set to `submit` on the `button`element -->
+  <button type="submit">Submit</button>
+</form>
+  </body>
+</html>
